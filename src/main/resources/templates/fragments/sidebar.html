@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<section th:fragment="sidebar-css">
+		<!-- Sidebar -->
+		<nav class="navbar-nav  sidebar sidebar-dark accordion toggled d-md-none" id="accordionSidebar"
+			style="background: #222d32">
+
+			<!-- Sidebar - Brand -->
+			<div class="sidebar-brand d-flex align-items-center justify-content-center ">
+				<div class="sidebar-brand-icon rotate-n-15">
+					<img class="img-profile rounded-circle" th:src="@{../images/sisadmin.jpg}" width="60" height="60">
+
+				</div>
+				<div class="sidebar-brand-text mx-3">SYS-ADMIN</div>
+			</div>
+
+			<!-- Divider -->
+			<hr class="sidebar-divider my-0">
+
+			<!-- Nav Item - Dashboard -->
+			<span class="nav-item active"><a class="nav-link" th:href="@{/dashboard/index}">
+					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
+				</a></span>
+
+			<!-- Divider -->
+			<hr class="sidebar-divider">
+
+			<!-- Heading -->
+			<div class="sidebar-heading">PANEL</div>
+
+			<!-- Nav Item - Pages Collapse Menu -->
+			<section class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+					aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-fw fa-cog"></i>
+					<span>Administración</span>
+				</a>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">Menú</h6>
+
+						<a class="collapse-item" th:href="@{/administracion/sucursales}"><i class="fas fa-hotel"></i>
+							Sucursales</a>
+						<a class="collapse-item" th:href="@{/administracion/empleados}"> <i
+								class="fas fa-user-friends"></i> Empleados </a>
+						<a class="collapse-item" th:href="@{/administracion/roles}"> <i
+								class="fas fa-suitcase-rolling"></i> Roles</a>
+						<a class="collapse-item" th:href="@{/administracion/puestos}"> <i class="fas fa-briefcase"></i>
+							Puestos</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseVentas"
+					aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-shopping-cart"></i>
+					<span>Ventas</span>
+				</a>
+				<div id="collapseVentas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">Menú</h6>
+						<a class="collapse-item" th:href="@{/administracion/series}"> <i
+								class="fas fa-file-invoice"></i> <span> Series de Facturas </span></a>
+						<a class="collapse-item" th:href="@{/ventas/facturar}"> <i class="fas fa-file-invoice"></i>
+							<span> Facturar </span></a>
+						<a class="collapse-item" th:href="@{/ventas/facturar}"></a>
+
+					</div>
+				</div>
+			</section>
+
+			<section class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInventario"
+					aria-expanded="true" aria-controls="collapseTwo"> <i class="far fa-folder-open"></i>
+					<span>Inventario</span>
+				</a>
+				<div id="collapseInventario" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">Menú</h6>
+						<a class="collapse-item" th:href="@{/inventario/productos}"><i class="fas fa-folder-plus"></i>
+							<span> Productos </span></a>
+						<a class="collapse-item" th:href="@{/inventario/entradas}"><i class="fas fa-folder-plus"></i>
+							<span> Entradas </span></a>
+						<a class="collapse-item" th:href="@{/inventario/salidas}"><i class="fas fa-folder-minus"></i>
+							<span> Salidas </span></a>
+
+					</div>
+				</div>
+			</section>
+
+
+
+			<!-- Divider -->
+			<hr class="sidebar-divider">
+
+			<!-- Heading -->
+			<div class="sidebar-heading">Addons</div>
+
+			<!-- Nav Item - Pages Collapse Menu -->
+
+
+
+		</nav>
+		<!-- End of Sidebar -->
+
+	</section>
+</body>
+
+</html>

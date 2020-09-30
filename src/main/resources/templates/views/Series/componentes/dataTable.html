@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<body th:fragment="dataTable-fragment">
+
+		<div class="card breadcrumb-container mb-3 col-10">
+			<ol class="breadcrumb mt-3">
+				<li class="breadcrumb-item">Administración</li>
+				<li class="breadcrumb-item " aria-current="page">Series</li>
+			</ol>
+		</div>
+		
+		<section class="card col-10 offset-1  shadow-sm mb-4">
+			<div class="card-header py-3 row">
+				<a class="mt-2 text-primary col-9" >LISTADO DE SERIES</a>
+				<button type="button" class="btn btn-outline-primary col-2 ml-5"
+					id="addSerie">
+					<i class="fa fa-plus"></i> NUEVA SERIE
+				</button>
+				
+			</div>
+			<div class="card-body  mt-0">
+				<section class="table-responsive ">
+					<table class="table  thead-light text-center" id="dataTable"
+						width="100%" cellspacing="0">
+						<thead class="card-header">
+							<tr>
+								<th>Correlativo</th>
+								<th>Serie</th>
+								<th>Correlativo actual</th>
+								<th>inicio</th>
+								<th>fin</th>
+								<th>estado</th>
+								<th>Editar</th>
+								<th>Eliminar</th>
+							</tr>
+						</thead>
+						<tfoot class="card-header">
+							<tr>
+								<th>Correlativo</th>
+								<th>Serie</th>
+								<th>Correlativo actual</th>
+								<th>inicio</th>
+								<th>fin</th>
+								<th>estado</th>
+								<th>Editar</th>
+								<th>Eliminar</th>
+							</tr>
+						</tfoot>
+					</table>
+				</section>
+
+
+
+			</div>
+	</section>
+
+</body>
+
+</html>

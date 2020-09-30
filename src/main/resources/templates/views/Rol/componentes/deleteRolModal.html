@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<body th:fragment="modal-frm-delete-fragment">
+
+	<!-- set up the modal to start hidden and fade in and out -->
+	<section id="modalDelete" class="modal mt-5">
+		<div class="modal-dialog mt-5">
+			<div class="modal-content">
+				<!-- dialog body -->
+				<div class="modal-body text-center bg-danger">
+					<strong id="nombreregistro" class="col-10"></strong>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<!-- dialog buttons -->
+				<div class="modal-footer">
+					<span class="text-center delete-border" style=""> Esta
+						acción eliminará el registro permanentemente </span>
+					<button type="button" class="btn btn-outline-danger"
+						id="btn-delete-confirm">eliminar</button>
+					<button type="button" class="btn btn-outline-success"
+						id="btn-cancel-confirm">Cancelar</button>
+
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

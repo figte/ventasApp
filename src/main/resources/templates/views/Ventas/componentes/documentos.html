@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<body th:fragment="documentos-css">
+
+	<section class="card breadcrumb-container mb-3">
+		<ol class="breadcrumb mt-3">
+			<li class="breadcrumb-item">Ventas</li>
+			<li class="breadcrumb-item " aria-current="page">Facturar</li>
+		</ol>
+	</section>
+
+	<section class="card breadcrumb-container mb-3">
+		<fieldset class="content-group mt-3 mb-3 ml-2">
+			<legend class="text-bold">TIPO DE COMPROBANTE: </legend>
+			<hr class="mt-1">
+			<section class="row mt-1">
+				<div class="col-3">
+					<div class="form-check">
+						<input type="radio" value="1" id="factura" name="tipo_comprobante" checked="checked">
+						<label for="factura">Factura Consumidor Final</label>
+					</div>
+				</div>
+
+				<div class="col-3">
+					<div class="form-check">
+						<input type="radio" value="2" id="ticket" name="tipo_comprobante">
+						<label for="ticket">Ticket</label>
+					</div>
+				</div>
+
+				<!--div class="col-3">
+					<div class="form-check">
+						<input type="radio" value="3" id="credito" name="tipo_comprobante">
+						<label for="credito">Nota Crédito</label>
+					</div>
+				</div>
+
+				<div class="col-3">
+					<div class="form-check">
+						<input type="radio" value="4" id="debito" name="tipo_comprobante">
+						<label for="debito">Nota Débito</label>
+					</div>
+
+				</div-->
+			</section>
+
+		</fieldset>
+
+		<section th:replace="views/Ventas/componentes/formulario :: modal-frm-factura" />
+	</section>
+
+</body>
+
+</html>

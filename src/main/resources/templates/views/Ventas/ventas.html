@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<section th:replace="fragments/header :: header-css" />
+
+</head>
+
+<body id="page-top">
+	<section id="wrapper">
+		<!-- Page Wrapper -->
+		<section th:replace="fragments/sidebar :: sidebar-css" />
+		<!-- Content sidebar -->
+		
+		<section id="content-wrapper" class="d-flex flex-column" />
+		<!-- Content Wrapper -->
+
+
+		<section id="content" >
+			<!-- Main Content -->
+			<section th:replace="fragments/navbar :: navbar-css" />
+
+			<section id="general-content" class="container-fluid ">
+				<!--Init content-->
+				<section th:replace="views/Ventas/componentes/documentos :: documentos-css" />
+			</section>
+			<!--end content-->
+
+			
+		</section>
+		
+		<!--footer-->
+		<section th:replace="fragments/foother :: foother-css" />
+		<!-- End of Content Wrapper -->
+	</section>
+	<!-- End of Page Wrapper -->
+
+	<section th:replace="views/Ventas/componentes/modalProducto::modal-frm-add-producto-fragment" /> 
+
+	<script th:src="@{../js/ventas.js}"></script>
+
+</body>
+
+</html>

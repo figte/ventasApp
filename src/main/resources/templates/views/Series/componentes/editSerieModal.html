@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<body th:fragment="modal-frm-edit-fragment">
+	<!-- The Modal Edit -->
+	<section class="modal mt-5" id="modalEdit">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<header class="modal-header text-center">
+					<h1 class="h4 col-12" th:text="${tituloEditar}" id="addTittle"></h1>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</header>
+
+				<!-- Modal body -->
+				<section class="modal-body">
+					<div class="card o-hidden border-0 shadow-lg">
+						<div class="card-body p-2 ">
+							<!-- Nested Row within Card Body -->
+							<div class="row my-1">
+								<div class="col-lg-12 col-sm-12">
+									<div class="p-2">
+										<div class="text-center" id="divTitulo"></div>
+										<form class="user" th:object="${serie}"
+											th:action="@{../administracion/saveSerie}" method="post"
+											id="editForm">
+											<input name="id" id="id" type="hidden" th:field="*{id}" />
+											<div class="form-group row">
+												<div class="col-sm-6 mb-6 mb-sm-0">
+													<input id="serie" name="serie" type="text"
+														class="form-control "
+														placeholder="serie" th:field="*{serie}"
+														th:errorclass="'form-control alert alert-danger'" /> <small
+														class="form-text text-danger"
+														th:if="${#fields.hasErrors('serie')}"
+														th:errors="*{serie}"></small>
+												</div>
+												<div class="col-sm-6 mb-6 mb-sm-0">
+													<input id="correlativoActual" name="correlativoActual" type="number"
+														class="form-control "
+														onkeydown="if(event.key==='.'){event.preventDefault();}"  oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');"
+														placeholder="correlativoActual" th:field="*{correlativoActual}"
+														th:errorclass="'form-control alert alert-danger'" /> <small
+														class="form-text text-danger"
+														th:if="${#fields.hasErrors('correlativoActual')}"
+														th:errors="*{correlativoActual}"></small>
+												</div>
+
+											</div>
+											<div class="form-group row">
+												<div class="col-sm-3 mb-3 mb-sm-0">
+													<input id="inicio" name="inicio" type="number"
+															class="form-control "
+															onkeydown="if(event.key==='.'){event.preventDefault();}"  oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');"
+															placeholder="inicio" th:field="*{inicio}"
+															th:errorclass="'form-control alert alert-danger'" /> <small
+															class="form-text text-danger"
+															th:if="${#fields.hasErrors('inicio')}"
+															th:errors="*{inicio}"></small>
+												</div>
+												<div class="col-sm-3 mb-3 mb-sm-0">
+													<input id="fin" name="fin" type="number"
+															class="form-control "
+															onkeydown="if(event.key==='.'){event.preventDefault();}"  oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');"
+															placeholder="fin" th:field="*{fin}"
+															th:errorclass="'form-control alert alert-danger'" /> <small
+															class="form-text text-danger"
+															th:if="${#fields.hasErrors('fin')}"
+															th:errors="*{fin}"></small>
+												</div>
+												<div class="col-sm-6 mb-6 mb-sm-0 col-lg-6 ">
+													<select name="estado" id="estado"
+														class="form-control "
+														th:field="*{estado}"
+														th:errorclass="'form-control alert alert-danger'">
+														<option value="activo" selected>activo</option>
+														<option value="inactivo">inactivo</option>
+													</select>
+													<small
+															class="form-text text-danger"
+															th:if="${#fields.hasErrors('estado')}"
+															th:errors="*{estado}"></small>
+												</div>
+											</div>
+											<hr class="mt-2">
+											<div class="row">
+												<input type="submit"
+													class="btn btn-outline-success  col-3 offset-3"
+													value="Guardar" id="submitButtonEdit" /> <input
+													type="reset" href="login.html"
+													class="btn btn-outline-danger col-3 offset-1"
+													value="Limpiar" />
+
+											</div>
+
+										</form>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+
+
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

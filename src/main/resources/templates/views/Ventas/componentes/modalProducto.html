@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    </head>
+
+    <body th:fragment="modal-frm-add-producto-fragment">
+         <!--  Modal Para seleccionar producto-->
+                    <!-- The Modal -->
+            	<!-- The Modal Add-->
+	<section class="modal  mt-5" id="ModalProducto" ><!--inicio contenedor principal-->
+
+		<div class="modal-dialog modal-xl ">
+			<div class="modal-content">
+
+                    <!-- <div class="modal fade" id="ModalProducto">
+                        <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                         -->
+                          <!-- Modal Header -->
+				    <header class="modal-header text-center">
+                        <h1 class="h4 col-12"  id="addTittle">Listado de productos</h1>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </header>
+                            
+                            <!-- Modal body -->
+                            <section class="modal-body">
+                                  <div class="card o-hidden border-0 shadow-lg">
+                                    <div class="card-body p-2 ">
+                                        <!-- Nested Row within Card Body -->
+                                        <div class="row my-1">
+                                            <div class="col-lg-12 col-sm-12">
+                                                <div class="p-2">
+                                                        <table  class="table table-hover mt-2"  id="tProductos">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Codigo</th>
+                                                                        <th>Nombre</th>
+                                                                        <th>Precio</th>
+                                                                        <th>Precio+IVA</th>
+                                                                        <th>Impuesto CESC</th>
+                                                                        <th>Existencias</th>
+                                                                        <th>Categoria</th>
+                                                                        <th>Proveedor</th>
+                                                                        <th>Acciones</th>
+                                                                    </tr>
+                                                                
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr th:each="item : ${productos}">
+                                                                        <td th:text="${item.codigo}"></td>
+                                                                        <td th:text="${item.nombre}"></td>
+                                                                        <td th:text="'$'+${#numbers.formatDecimal(item.precio,1, 'POINT', 2, 'POINT') }"></td>
+                                                                        <td th:text="'$'+${#numbers.formatDecimal((item.precio*1.13),1, 'POINT', 2, 'POINT') }"></td>
+                                                                       <td th:if="${item.impuesto_CESC==false} ">NO</td>
+                                                                       <td th:if="${item.impuesto_CESC==null} ">NO</td>
+                                                                       <td th:if="${item.impuesto_CESC==true} ">SI</td>
+                                                                       <td th:text="${item.existencias}"></td>
+                                                                       <td th:text="${item.categoria.nombre}"></td>
+                                                                       <td th:text="${item.proveedor.nombre}"></td>
+                                                                        <td>
+                                                                            <button  class="btn btn-primary agregarProducto"  data-dismiss="modal">Agregar</button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                                <tfoot>
+                                                                        <tr>
+                                                                                <th>Codigo</th>
+                                                                                <th>Nombre</th>
+                                                                                <th>Precio</th>
+                                                                                <th>Precio+IVA</th>
+                                                                                <th>Impuesto CESC</th>
+                                                                                <th>Existencias</th>
+                                                                                <th>Categoria</th>
+                                                                                <th>Proveedor</th>
+                                                                                <th>Acciones</th>
+                                                                        </tr>
+                                                                </tfoot>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                  
+                            </section>
+            
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                            
+                        </div>
+                </div>
+	</section>   
+    </body>
+</html>

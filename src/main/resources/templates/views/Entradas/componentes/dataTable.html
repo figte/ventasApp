@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<body th:fragment="dataTable-fragment">
+	<div class="card-header col-10 offset-1 mb-3  shadow-sm">
+		<form action="" method="post" class="row">
+
+			<div class="form-group col-5">
+				<label for="fecha1" class="">Fecha Inicio</label>
+				<input type="date" name="fecha1" class="form-control" id="fecha1">
+			</div>
+			<div class="form-group col-5">
+				<label for="fecha2">Fecha Final</label>
+				<input type="date" name="fecha2" class="form-control" id="fecha2">
+			</div>
+			<div class="form-group col-2 pt-1">
+				<button type="button" class="btn btn-outline-primary col-12  mt-4" id="btn-buscar">
+					<i class="fa fa-search"></i> Buscar
+				</button>
+			</div>
+
+		</form>
+	</div>
+	<section class="card col-10 offset-1  shadow-sm mb-4">
+		<div class="card-header py-3 row">
+			<a class="mt-2 text-primary col-6">Lotes de Productos</a>
+			<button type="button" class="btn btn-outline-primary col-3 offset-3" id="addEntrada">
+				<i class="fa fa-plus"></i> Ingresar Productos
+			</button>
+		</div>
+
+		<div class="card-body  mt-0">
+			<section class="table-responsive ">
+				<table class="table  thead-light text-center" id="dataTable" width="100%" cellspacing="0">
+					<thead class="card-header">
+						<tr>
+							<th>Correlativo</th>
+							<th>Código de producto</th>
+							<th>Producto</th>
+							<th>Cantidad</th>
+							<th>Unidad de medida</th>
+							<th>Fecha Ingreso</th>
+							<th>Entrada</th>
+							<th>Documento</th>
+							<th>Código</th>
+							<th>Detalle</th>
+						</tr>
+					</thead>
+					<tfoot class="card-header">
+						<tr>
+							<th>Correlativo</th>
+							<th>Código de producto</th>
+							<th>Producto</th>
+							<th>Cantidad</th>
+							<th>Unidad de medida</th>
+							<th>Fecha Ingreso</th>
+							<th>Entrada</th>
+							<th>Documento</th>
+							<th>Código</th>
+							<th>Detalle</th>
+						</tr>
+					</tfoot>
+
+				</table>
+			</section>
+
+
+
+		</div>
+	</section>
+
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<body th:fragment="modal-frm-add-fragment">
+	<!-- The Modal Add-->
+	<section class="modal  mt-0" id="modalAdd">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<header class="modal-header text-center">
+					<h1 class="h4 col-12" th:text="${titulo}" id="addTittle"></h1>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</header>
+
+				<!-- Modal body -->
+				<section class="modal-body">
+					<div class="card o-hidden border-0 shadow-lg">
+						<div class="card-body p-2 ">
+							<!-- Nested Row within Card Body -->
+							<div class="row my-1">
+								<div class="col-lg-12 col-sm-12">
+									<div class="p-2">
+										<div class="text-center" id="divTitulo"></div>
+										<form th:action="@{../administracion/saveEmpleado}" method="post"
+											id="registrationForm">
+											<div class="form-group row" id="InfoGereral" style="color: black">
+												<div class="col-4 form-group">
+													<label>Nombre:</label> <input name="nombre" type="text"
+														class="form-control" placeholder="Nombres" />
+												</div>
+												<div class="col-4 form-group">
+													<label>Apellido:</label> <input name="apellido" type="text"
+														class="form-control form-control-user"
+														placeholder="Apellidos" />
+												</div>
+												<div class="col-4 form-group">
+													<label>Fecha de nacimiento:</label> <input name="edad" type="date"
+														data-date-format="DD MMMM YYYY"
+														class="form-control form-control-user" />
+												</div>
+												<div class="col-4 form-group">
+													<label>Profesión:</label> <input name="profesion" type="text"
+														class="form-control form-control-user"
+														placeholder="Profesión" />
+												</div>
+												<div class="col-4 form-group">
+													<label>Contacto:</label> <input name="contacto" type="text"
+														class="form-control form-control-user"
+														placeholder="Email ó Telefono" />
+												</div>
+												<div class="col-4 form-group">
+													<label>Dirección:</label> <input name="direccion" type="text"
+														class="form-control form-control-user"
+														placeholder="Col. xxx, casa número xxx, Departamento" />
+												</div>
+
+											</div>
+											<div class="form-group row" id="InfoGereral" style="color: black">
+												<div class="col-4 form-group">
+													<label class="col-6">Sucursal:</label> <select name="empresa"
+														class="  form-control  col-12 ">
+														<option selected value="">Seleccione</option>
+														<div th:each="sucursal : ${sucursales}">
+															<option th:value="${sucursal.id}"
+																th:text="${sucursal.nombre}"></option>
+														</div>
+													</select>
+												</div>
+												<div class="col-4 form-group">
+													<label class="col-6">Puesto:</label> <select name="cargo"
+														class="  form-control  col-12" t>
+														<option selected value="">Seleccione</option>
+														<div th:each="cargo : ${puestos}">
+															<option th:value="${cargo.nombre}" th:text="${cargo.nombre}">
+															</option>
+														</div>
+
+														<!-- option value="Gerente">Gerente</option>
+													<option value="Vendedor">Vendedor</option-->
+													</select>
+												</div>
+												<div class="col-4 form-group" >
+													<div class="permisos">
+														<label class="col-6">Permisos:</label>
+														<section class="row"
+															>
+															<div th:each="rol : ${roles}" class="col-6">
+																<input type="checkbox" th:text="${rol.nombre}"
+																	th:value="${rol.id}"></input>
+															</div>
+
+														</section>
+													</div>
+												</div>
+											</div>
+											<input type="hidden" name="permisos">
+											<div class="col-6 offset-3">
+												<div class="row">
+													<input class="btn btn-outline-success col-5 ml-3 " type="submit"
+														id="btnGuardarEmpleado"></input> <input
+														class="btn btn-outline-danger col-5 ml-4" type="reset"></input>
+												</div>
+
+											</div>
+										</form>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Modal footer -->
+
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

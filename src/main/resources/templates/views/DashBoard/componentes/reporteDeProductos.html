@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<body th:fragment="reporte-productos-fragment">
+	<div class="row ml-1 mr-1 mt-2">
+		  <button class="btn btn-warning col-12 p-1 btn-change"  id = "btn-stock" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+		   Reporte: Stock de productos
+		  </button>
+	</div>
+  
+
+	<div class="collapse" id="collapseExample">
+		  <div class="card card-body  mt-2" style="min-height: 150px">
+			  <div class="card-header col-10 offset-1 mb-2  shadow-sm">
+			       <h3 class="text-center">GENERAR REPORTE</h3>
+					<form action="" method="post" class="row">
+			
+						<div class="form-group col-10">
+							<label for="fecha1" class="">Seleccione una Categoría:</label>
+							<input type="date" name="fecha1" class="form-control" id="fecha1">
+						</div>
+						<div class="form-group col-2 pt-1">
+							<button type="button" class="btn btn-outline-primary col-12  mt-4" id="btn-buscar">
+								<i class="fa fa-search"></i> Buscar
+							</button>
+						</div>
+			
+					</form>
+			  </div>
+		   
+		  </div>
+	</div>
+</body>
+
+</html>

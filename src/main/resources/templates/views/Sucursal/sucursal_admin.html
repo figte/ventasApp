@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<section th:replace="fragments/header :: header-css" />
+</head>
+
+<body>
+
+	<section id="wrapper" style="background: white !important">
+		<!--Contenedor princial-->
+
+		<section th:replace="fragments/sidebar :: sidebar-css" /> <!-- Content sidebar -->
+
+		<section id="content-wrapper" class="d-flex flex-column">
+			<!-- Content Wrapper -->
+
+			<section id="content">
+				<!--contenido-->
+				<!-- Main Content -->
+				<section th:replace="fragments/navbar :: navbar-css" />
+
+				<section id="general-content" class="container-fluid ">
+
+						<div class="card breadcrumb-container mb-3 col-10">
+							<ol class="breadcrumb mt-3">
+								<li class="breadcrumb-item">Administración</li>
+								<li class="breadcrumb-item " aria-current="page">Sucursales</li>
+							</ol>
+						</div>
+
+					<!--Data table-->
+					<section th:replace="views/sucursal/componentes/dataTable :: dataTable-fragment" />
+				</section>
+
+				<section th:replace="fragments/foother :: foother-css" />
+
+			</section>
+			<!--fin contenido-->
+
+		</section>
+		<!--fin Contenedor princial-->
+
+
+		<section th:replace="views/sucursal/componentes/addSucursalModal :: modal-frm-add-fragment" />
+
+		<section th:replace="views/sucursal/componentes/editSucursalModal :: modal-frm-edit-fragment" />
+
+		<section th:replace="views/sucursal/componentes/deleteSucursalModal :: modal-frm-delete-fragment" />
+
+		<script th:src="@{../js/sucursal.js}"></script>
+
+
+</body>
+
+</html>

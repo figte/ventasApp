@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<body th:fragment="dataTable-fragment">
+
+		<div class="card breadcrumb-container mb-3 col-10">
+			<ol class="breadcrumb mt-3">
+				<li class="breadcrumb-item">Administración</li>
+				<li class="breadcrumb-item " aria-current="page">Categorias</li>
+			</ol>
+		</div>
+		
+		<section class="card col-10 offset-1  shadow-sm mb-4">
+			<div class="card-header py-3 row">
+				<a class="mt-2 text-primary col-6" >LISTADO DE CATEGORIAS/SUB-CATEGORIAS</a>
+				<button type="button" class="btn btn-outline-primary col-2 ml-5"
+					id="addPuesto">
+					<i class="fa fa-plus"></i> NUEVA CATEGORIA
+				</button>
+				<button type="button" class="btn btn-outline-primary col-3 ml-4"
+					id="addPuesto">
+					<i class="fa fa-plus"></i> NUEVA SUB-CATEGORIA
+				</button>
+			</div>
+			<div class="card-body  mt-0">
+				<section class="table-responsive ">
+					<table class="table  thead-light text-center" id="dataTable"
+						width="100%" cellspacing="0">
+						<thead class="card-header">
+							<tr>
+								<th>Correlativo</th>
+								<th>Nombre</th>
+								<th>Detalle</th>
+								<th>Editar</th>
+								<th>ELiminar</th>
+							</tr>
+						</thead>
+						<tfoot class="card-header">
+							<tr>
+								<th>Correlativo</th>
+								<th>Nombre</th>
+								<th>Detalle</th>
+								<th>Editar</th>
+								<th>ELiminar</th>
+							</tr>
+						</tfoot>
+
+					</table>
+				</section>
+
+
+
+			</div>
+	</section>
+
+</body>
+
+</html>

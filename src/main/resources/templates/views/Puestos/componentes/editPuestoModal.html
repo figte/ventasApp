@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<body th:fragment="modal-frm-edit-fragment">
+	<!-- The Modal Edit -->
+	<section class="modal mt-5" id="modalEdit">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<header class="modal-header text-center">
+					<h1 class="h4 col-12" th:text="${tituloEditar}" id="addTittle"></h1>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</header>
+
+				<!-- Modal body -->
+				<section class="modal-body">
+					<div class="card o-hidden border-0 shadow-lg">
+						<div class="card-body p-2 ">
+							<!-- Nested Row within Card Body -->
+							<div class="row my-1">
+								<div class="col-lg-12 col-sm-12">
+									<div class="p-2">
+										<div class="text-center" id="divTitulo"></div>
+										<form class="user" th:object="${puesto}"
+											th:action="@{../administracion/savePuesto}" method="post"
+											id="editForm">
+											<input name="id" id="id" type="hidden" th:field="*{id}" />
+											<div class="form-group row">
+												<div class="col-sm-12 mb-12 mb-sm-0">
+													<input id="nombre" name="nombre" type="text"
+														class="form-control form-control-user"
+														placeholder="NOMBRE DEL ROL" th:field="*{nombre}"
+														th:errorclass="'form-control alert alert-danger'" /> <small
+														class="form-text text-danger"
+														th:if="${#fields.hasErrors('nombre')}"
+														th:errors="*{nombre}"></small>
+												</div>
+
+											</div>
+											<div class="form-group">
+												<textarea id="detalle" name="detalle"
+													class="form-control form-control-user"
+													placeholder="DESCRIPCIÓN" th:field="*{detalle}"
+													th:errorclass="'form-control alert alert-danger'"></textarea>
+												<small class="form-text text-danger"
+													th:if="${#fields.hasErrors('detalle')}"
+													th:errors="*{detalle}"></small>
+											</div>
+											<hr>
+											<div class="row">
+												<input type="submit"
+													class="btn btn-outline-success  col-3 offset-3"
+													value="Guardar" id="submitButtonEdit" /> <input
+													type="reset" href="login.html"
+													class="btn btn-outline-danger col-3 offset-1"
+													value="Limpiar" />
+
+											</div>
+
+										</form>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+
+
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

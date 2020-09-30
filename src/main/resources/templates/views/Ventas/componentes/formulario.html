@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<body th:fragment="modal-frm-factura">
+	<form class="ml-2" th:object="${sucursal}" th:action="@{../?}" method="post" id="registrationForm">
+		<div id="factura-div">
+			<legend class="text-bold mt-0">FACTURA:</legend>
+			<hr class="mt-1">
+			<fieldset class="content-group">
+				<div class="row">
+					<div class="form-group col-md-3 pr-4">
+						<label><i class="icon-barcode2 position-left"></i> Serie:</label>
+						<input type="text" name="idSerie" id="serie" 
+							class="form-control" readonly="readonly">
+					</div>
+					<div class="form-group col-md-3 pr-4">
+						<label><i class="icon-file-text2 position-left"></i> Número (6 números):</label>
+						<input type="text" name="correlativo" id="correlativo"
+							class="form-control" readonly="readonly">
+					</div>
+					<div class="form-group col-md-3 pr-4">
+						<label><i class="icon-calendar2 position-left"></i> Fecha.Doc:</label>
+						<input type="date" name="fecha_comprobante" id="fecha" placeholder=""
+							class="form-control" >
+					</div>
+					<div class="form-group col-md-3 pr-4">
+						<label><i class="icon-calendar2 position-left"></i>Tipo de venta</label> <br>
+						<select title="Selecciona el Tipo de Moneda" data-placeholder="Selecciona Tu Moneda"
+							class="form-control col-11" name="codmoneda_comprobante" id="codmoneda_comprobante"
+							required="" tabindex="-1" aria-hidden="true">
+							<option value="1">Crédito</option>
+							<option value="2" selected>Contado</option>
+						</select>
+					</div>
+				</div>
+			</fieldset>
+			<legend class="text-bold mt-3">CLIENTE:</legend>
+			<hr class="mt-1">
+			<fieldset class="content-group">
+				<div class="row">
+					<div class="form-group col-12 pr-4">
+						<label><i class="icon-barcode2 position-left"></i> Nombre:</label>
+						<input type="text" name="cliente" id="cliente" class="form-control"
+							placeholder="Nombre">
+					</div>
+				</div>
+			</fieldset>
+			<legend class="text-bold mt-3">DETALLE DEL DOCUMENTO:</legend>
+			<hr class="mt-1">
+			<fieldset class="content-group col-12">
+				<div class="row  mb-3 mt-2">
+					<div class="form-group col-2">
+						<label for="cantidad">Cantidad:</label>
+						<input id="cantidad" class="form-control" type="number" 
+						name="cantidad"
+						 onkeydown="if(event.key==='.'){event.preventDefault();}"  oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');">
+					</div>
+
+					<div class="form-group col-4">
+						<label for="producto">producto:</label>
+						<input id="producto" class="form-control" type="text" name="producto" readonly>
+					</div>
+					<div class="form-group col-1">
+						<button id="buscarProducto" type="button" class="btn btn-outline-primary mt-4"  data-toggle="modal" data-target="#ModalProducto">
+							<i class="fa fa-search" aria-hidden="true"></i>
+							Buscar
+						</button>
+					</div>
+					<div class="form-group col-3">
+						<label for="cantidad">Tipo de detalle:</label>
+						<select name="tipoDetalle" id="tipoDetalle" class="form-control">
+							<option value="gravado" selected>gravado</option>
+							<option value="exento" >exento</option>
+							<option value="noSujeto">no sujeto</option>
+						</select>
+					</div>
+					<div class="form-group col-2">
+						<button id="agregarProducto" type="button" class="btn btn-outline-success mt-4">
+							<i class="fa fa-plus" aria-hidden="true"></i>
+							Agregar
+						</button>
+					</div>
+					<!-- <button type="button" class="btn btn-outline-danger col-3 ml-5">
+						<i class="fa fa-minus" aria-hidden="true"></i>
+						Eliminar
+					</button> -->
+				</div>
+
+				<section class="container-table">
+					<table class="table" id="table-factura">
+						<thead>
+							<tr>
+								<th>Cantidad</th>
+								<th>Código</th>
+								<th>Descripción</th>
+								<th>Unidad de medida</th>
+								<th>Precio Unitario</th>
+								<th>No sujetas</th>
+								<th>Exentas</th>
+								<th>Grabadas</th>
+								<th>Eliminar</th>
+							</tr>
+						</thead>
+						<tbody id="tDetalles">
+							
+						</tbody>
+					</table>
+				</section>
+
+				<section id="detalle_factura col-10 offset-1" class="row mt-3 mb-3">
+					<div class="col-6">
+						<legend class="text-bold mt-3"><i class="fa fa-address-book mr-1"
+								aria-hidden="true"></i>Observación:</legend>
+						<textarea  id="observación_comprobante" class="form-control"
+							rows="5"></textarea>
+					</div>
+					<div class="col-6">
+						<legend class="text-bold mt-3 ml-0">Resumen de ventas:</legend>
+						<hr class="mt-1">
+						<div class="row mt-3">
+							<legend class="text-bold mt-2 col-2">sumas:</legend>
+							 <input id="sumas_comprobante" type="text" class="form-control col-8 ml-2" disabled>
+							
+						</div>
+						<div class="row mt-3">
+							<legend class="text-bold mt-2 col-2">IVA:</legend>
+							 <input id="iva_comprobante" type="text" class="form-control col-3 ml-1" disabled>
+							 <legend class="text-center mt-2 col-2">CESC:</legend>
+							 <input id="cesc_comprobante" type="text" class="form-control col-3 ml-1" disabled>
+						</div>
+						<hr class="mt-1">
+						<div class="row mt-3">
+							<legend class="text-bold mt-2 col-2">No sujetas:</legend> 
+							<input id="totalNoSujetas" type="text" class="form-control col-8 ml-2" disabled>
+						</div>
+						<hr class="mt-1">
+						<div class="row mt-3">
+							<legend class="text-bold mt-2 col-2">Exentas:</legend>
+							 <input id="totalExentas" type="text" class="form-control col-8 ml-2" disabled>
+						</div>
+						<hr class="mt-1">
+						<div class="row mt-3">
+							<legend class="text-bold mt-2 col-2">Tolales:</legend>
+							 <input id="total_comprobante" type="text" class="form-control col-8 ml-2" disabled>
+						</div>
+						<hr class="mt-1">
+						<button id="guardarVenta" type="button" name="vender" class="btn btn-outline-success col-4 mt-3"><i class="fa fa-handshake mr-2" aria-hidden="true"></i>Facturar</button>
+						<button type="reset" name="cancelar" class="btn btn-outline-danger col-4 mt-3 ml-2" ><i class="fa fa-eject mr-2" aria-hidden="true"></i>Cancelar</button>
+					</div>
+
+				</section>
+			</fieldset>
+			
+	</form>
+
+
+</body>
+
+</html>

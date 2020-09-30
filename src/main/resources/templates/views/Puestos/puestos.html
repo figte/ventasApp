@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<section th:replace="fragments/header :: header-css" />
+</head>
+
+<body id="page-top">
+	<section id="wrapper">
+		<!-- Page Wrapper -->
+		<section th:replace="fragments/sidebar :: sidebar-css" />
+		<!-- Content sidebar -->
+
+
+		<section id="content-wrapper" class="d-flex flex-column" />
+		<!-- Content Wrapper -->
+
+
+		<section id="content">
+			<!-- Main Content -->
+			<section th:replace="fragments/navbar :: navbar-css" />
+
+			<section id="general-content" class="container-fluid ">
+				<!--Init content-->
+				<!-- DataTales Example -->
+                 <section th:replace="views/Puestos/componentes/dataTable :: dataTable-fragment" />
+
+			</section>
+			<!--end content-->
+
+			<section th:replace="fragments/foother :: foother-css" />
+			<!-- Footer -->
+		</section>
+		<!-- End of Content Wrapper -->
+	</section>
+	<!-- End of Page Wrapper -->
+
+		<section th:replace="views/Puestos/componentes/addPuestoModal :: modal-frm-add-fragment" />
+	    <section th:replace="views/Puestos/componentes/deletePuestoModal :: modal-frm-delete-fragment" />
+	    <section th:replace="views/Puestos/componentes/editPuestoModal :: modal-frm-edit-fragment" />
+	    
+	<script th:src="@{../js/puestos.js}"></script>
+
+
+</body>
+
+</html>

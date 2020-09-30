@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<body th:fragment="modal-frm-edit-fragment">
+	<!-- The Modal Edit -->
+	<section class="modal mt-5" id="modalEdit">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<header class="modal-header text-center">
+					<h1 class="h4 col-12" th:text="${tituloEditar}" id="addTittle"></h1>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</header>
+
+				<!-- Modal body -->
+				<section class="modal-body">
+					<div class="card o-hidden border-0 shadow-lg">
+						<div class="card-body p-2 ">
+							<!-- Nested Row within Card Body -->
+							<div class="row my-1">
+								<div class="col-lg-12 col-sm-12">
+									<div class="p-2">
+										<div class="text-center" id="divTitulo"></div>
+										<form class="user" th:object="${producto}"
+											th:action="@{../inventario/saveProducto}" method="post"
+											id="editForm">
+											<!-- <input name="codigo" id="codigo" type="hidden" th:field="*{codigo}" /> -->
+											<div class="form-group row">
+												<div class="col-sm-4 mb-4 mb-sm-0">
+													<input id="codigo" name="codigo" type="text"
+													    readonly="readonly"
+														class="form-control "
+														placeholder="codigo" th:field="*{codigo}"
+														th:errorclass="'form-control alert alert-danger'" /> <small
+														class="form-text text-danger"
+														th:if="${#fields.hasErrors('codigo')}"
+														th:errors="*{codigo}"></small>
+												</div>
+												<div class="col-sm-4 mb-4 mb-sm-0">
+													<input id="nombre" name="nombre" type="text"
+														class="form-control "
+														placeholder="nombre" th:field="*{nombre}"
+														th:errorclass="'form-control alert alert-danger'" /> <small
+														class="form-text text-danger"
+														th:if="${#fields.hasErrors('nombre')}"
+														th:errors="*{nombre}"></small>
+												</div>
+												<div class="col-sm-4 mb-4 mb-sm-0 col-lg-4 form-group">
+													<select th:field="*{idProveedor}" class="form-control " 
+															name="idProveedor" id="idProveedor" 
+															th:errorclass="'form-control alert alert-danger'">
+														<option  th:each=" item: ${proveedores}" th:value="${item.id}" 
+														th:text="${item.nombre}" th:if="@{idProveedor==item.id}" selected></option>
+														<option th:each=" item: ${proveedores}" th:value="${item.id}"
+														 th:text="${item.nombre}" th:if="@{idProveedor!=item.id}"></option>
+													</select>
+													<small
+													class="form-text text-danger"
+													th:if="${#fields.hasErrors('idProveedor')}"
+													th:errors="*{idProveedor}"></small>
+												</div>
+											</div>
+											<div class="form-group row">
+												<div class="col-sm-4 mb-4 mb-sm-0">
+													<input id="existencias" name="existencias" type="number"
+															class="form-control"
+															onkeydown="if(event.key==='.'){event.preventDefault();}"  oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');"
+															placeholder="existencias" th:field="*{existencias}"
+															th:errorclass="'form-control alert alert-danger'" /> <small
+															class="form-text text-danger"
+															th:if="${#fields.hasErrors('existencias')}"
+															th:errors="*{existencias}"></small>
+												</div>
+												<div class="col-sm-4 mb-4 mb-sm-0">
+													<input id="stock" name="stock" type="text"
+															class="form-control"
+															placeholder="stock" th:field="*{stock}"
+															th:errorclass="'form-control alert alert-danger'" /> <small
+															class="form-text text-danger"
+															th:if="${#fields.hasErrors('stock')}"
+															th:errors="*{stock}"></small>
+												</div>
+												<div class="col-sm-4 mb-4 mb-sm-0">
+													<input id="unidadDeMedida" name="unidadDeMedida" type="text"
+															class="form-control"
+															placeholder="unidad De Medida" th:field="*{unidadDeMedida}"
+															th:errorclass="'form-control alert alert-danger'" /> <small
+															class="form-text text-danger"
+															th:if="${#fields.hasErrors('unidadDeMedida')}"
+															th:errors="*{unidadDeMedida}"></small>
+												</div>
+											</div>
+											<div class="form-group row">
+												
+												<div class="col-sm-3 mb-3 mb-sm-0 col-lg-3 form-group">
+													<input name="estado" type="number"
+														class="form-control " placeholder="estado"
+														th:field="*{estado}" 
+														th:errorclass="'form-control alert alert-danger'"/>
+														<small
+															class="form-text text-danger"
+															th:if="${#fields.hasErrors('estado')}"
+															th:errors="*{estado}"></small>
+												</div>
+												<div class="col-sm-3 mb-3 mb-sm-0 col-lg-3 form-group">
+													<input name="precio" type="number"
+														class="form-control " placeholder="precio"
+														th:field="*{precio}"
+														th:errorclass="'form-control alert alert-danger'" />
+														<small
+															class="form-text text-danger"
+															th:if="${#fields.hasErrors('precio')}"
+															th:errors="*{precio}"></small>
+												</div>
+												<div class="col-sm-3 mb-3 mb-sm-0 col-lg-3 form-group">
+													<select th:field="*{idCategoria}" class="form-control " 
+													name="idCategoria" id="idCategoria"
+													th:errorclass="'form-control alert alert-danger'">
+														<option th:each=" item: ${categorias}" th:value="${item.id}" th:text="${item.nombre}" ></option>
+													</select>
+													<small
+															class="form-text text-danger"
+															th:if="${#fields.hasErrors('idCategoria')}"
+															th:errors="*{idCategoria}"></small>
+												</div>
+												<div class="col-sm-3 mb-3 mb-sm-0 col-lg-3 form-group">
+													<select  th:field="*{impuesto_CESC}" class="form-control "
+													 name="impuesto_CESC" id="impuesto_CESC"
+													 th:errorclass="'form-control alert alert-danger'">
+														<option value="0" selected>NO</option>
+														<option value="1">SI</option>
+
+													</select>
+													<small
+															class="form-text text-danger"
+															th:if="${#fields.hasErrors('impuesto_CESC')}"
+															th:errors="*{impuesto_CESC}"></small>
+												</div>
+
+											</div>
+
+											<hr class="mt-2">
+											<div class="row">
+												<input type="submit"
+													class="btn btn-outline-success  col-3 offset-3"
+													value="Guardar" id="submitButtonEdit" /> <input
+													type="reset" href="login.html"
+													class="btn btn-outline-danger col-3 offset-1"
+													value="Limpiar" />
+
+											</div>
+
+										</form>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+
+
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

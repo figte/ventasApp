@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<body th:fragment="modal-frm-add-fragment">
+	<!-- The Modal Add-->
+	<section class="modal mt-5" id="modalAdd">
+		<div class="modal-dialog  modal-xl">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<header class="modal-header  text-center">
+					<h1 class="h4 col-12" id="addTittle">Entradas</h1>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</header>
+
+				<!-- Modal body -->
+				<section class="modal-body">
+					<div class="card o-hidden border-0 shadow-sm">
+						<div class="card-body p-2 ">
+							<!-- Nested Row within Card Body -->
+							<div class="row my-1">
+								<div class="col-lg-12 col-sm-12">
+									<div class="p-2">
+										<div class="text-center" id="divTitulo"></div>
+										<!-- opciones  -->
+										<section class="row mt-1">
+											<p class="ml-3">Seleccione una opción:</p>
+											<div class="col-3">
+												<div class="form-check">
+													<input type="radio" value="1" id="lote" name="proceso"
+														checked="checked"> <label for="lote">Ingreso
+														de productos</label>
+												</div>
+											</div>
+
+											<div class="col-2">
+												<div class="form-check">
+													<input type="radio" value="2" id="devolucion"
+														name="proceso"> <label for="devolucion">Devoluciones</label>
+												</div>
+											</div>
+
+
+										</section>
+										<!-- fin de opciones  -->
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card o-hidden border-0 shadow-sm mt-2">
+						<div class="card-body p-2 ">
+							<section id="entradas">
+
+								<form th:action="@{../inventario/saveEntrada}"
+									method="post" id="registrationFormCompra" class="text-center">
+									<section class="row">
+										<div class="col-4 form-group">
+											<label class="col-6">Categorias:</label>
+											 <select class=" form-control" name="categoria" id="categoria">
+												<option value="0" selected="selected" id="optionCategoriadefault">Seleccione</option>
+												<div th:each="categoria : ${categorias}">
+													<option th:value="${categoria.id}"
+														th:text="${categoria.nombre}"></option>
+												</div>
+											</select>
+										</div>
+										<div class="col-4 form-group text-center">
+											<label class="col-6">Productos:</label> <select
+												name="codigoProducto" class="  form-control  col-12 ">
+												<option selected="selected" value="0" id="optionProductodefault"  name="producto">Seleccione</option>
+											</select>
+										</div>
+
+										<div class="col-4 form-group">
+											<label>Cantidad:</label> <input name="cantidad" type="number"
+												class="form-control" placeholder="Cantidad">
+										</div>
+
+
+										<input name="tipoDeEntrada" type="hidden" value="compra">
+										<div class="col-4 form-group">
+											<label>Precio Compra:</label> <input name="precioCompra"
+												type="number" class="form-control" placeholder="$pecio">
+										</div>
+										<div class="col-4 form-group">
+											<label>Porcentaje de ganacia:</label> <input name="porcentaje"
+												type="number" class="form-control" placeholder="0 - 100 %">
+										</div>
+										<div class="col-4 form-group">
+											<label class="col-6">Documento de compra:</label>
+											 <select class=" form-control" name="compra" id="compra">
+												<option value="0" selected="selected" id="optioncompradefault">Seleccione</option>
+												<option value="Crédito fiscal">Crédito Fiscal</option>
+												<option value="Débito fiscal">Débito Fiscal</option>
+												<option value="Factura"> Factura </option>
+												<option value="No Contiene"> No Contiene </option>
+											</select>
+										</div>
+										
+									</section>
+
+									<section class="row">
+										<div class="col-6 form-group">
+											<label>Código de Documento </label> <input name="documento"
+												type="text" class="form-control" placeholder="Codigo de compra">
+										</div>
+										<div class="form-group col-6">
+											<label>Detalle:</label>
+											<textarea name="detalle" rows="1" class="col-12 form-control"></textarea>
+										</div>
+									</section>
+
+									<input class="btn btn-outline-success col-2 offset-0"
+										type="button" id="btnGuardarEntrada" value="Guardar"> 
+										<input
+										class="btn btn-outline-danger col-2" type="reset">
+								</form>
+
+							</section>
+							<section id="devoluciones">
+								<form class="user" th:action="@{../inventario/devolucion}"
+									method="post" id="registrationFormDevolucion">
+									<section class="row">
+										<div class="col-12 form-group">
+											<label>Código:</label> <input name="codigo_factura"
+												type="text" class="form-control" placeholder="Factura">
+										</div>
+										<div class="form-group col-12">
+											<label>Detalle:</label>
+											<textarea name="detalle" rows="5" class="col-12 form-control"></textarea>
+										</div>
+									</section>
+									<div>
+									</div>
+									<input class="btn btn-outline-success col-2 offset-4"
+										type="submit" id="btnGuardarEntrada"> 
+										<input class="btn btn-outline-danger col-2" type="reset">
+								</form>
+
+							</section>
+						</div>
+					</div>
+
+				</section>
+
+				<!-- Modal footer -->
+
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

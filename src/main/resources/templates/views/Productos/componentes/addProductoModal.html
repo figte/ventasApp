@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<body th:fragment="modal-frm-add-fragment">
+	<!--Modal encargado para guardar sucursal-->
+
+	<!-- The Modal Add-->
+	<section class="modal  mt-5" id="modalAdd" ><!--inicio contenedor principal-->
+
+		<div class="modal-dialog modal-custom modal-xl">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<header class="modal-header text-center">
+					<h1 class="h4 col-12" th:text="${titulo}" id="addTittle"></h1>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</header>
+
+				<!-- Modal body -->
+				<section class="modal-body">
+					<div class="card o-hidden border-0 shadow-lg">
+						<div class="card-body p-2 ">
+							<!-- Nested Row within Card Body -->
+							<div class="row my-1">
+								<div class="col-lg-12 col-sm-12">
+									<div class="p-2">
+										<div class="text-center" id="divTitulo"></div>
+										<form class="user" th:object="${producto}"
+											th:action="@{/inventario/saveProducto}" method="post"
+											id="registrationForm">
+											<div class="form-group row">
+												<div class="col-sm-4 mb-4 mb-sm-0 col-lg-4 form-group">
+													
+													<input name="codigo" type="text"
+														class="form-control "
+														placeholder="codigo" th:field="*{codigo}" />
+												</div>
+												<div class="col-sm-4 mb-4 mb-sm-0 col-lg-4 form-group">
+													<input name="nombre" type="text"
+														class="form-control " placeholder="nombre"
+														th:field="*{nombre}" />
+												</div>
+												<div class="col-sm-4 mb-4 mb-sm-0 col-lg-4 form-group">
+													<select th:field="*{idProveedor}" class="form-control " name="idProveedor" id="idProveedor">
+														<option value="" selected>--Seleccione un proveedor--</option>
+														<option th:each=" item: ${proveedores}" th:value="${item.id}" th:text="${item.nombre}" ></option>
+													</select>
+												</div>
+
+											</div>
+											<div class="form-group row">
+												
+												<div class="col-sm-4 mb-4 mb-sm-0 col-lg-4 form-group">
+													<input name="existencias" type="number"
+														class="form-control " placeholder="existencias"
+														onkeydown="if(event.key==='.'){event.preventDefault();}"  oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');"
+														th:field="*{existencias}" />
+												</div>
+												<div class="col-sm-4 mb-4 mb-sm-0 col-lg-4 form-group">
+													<input name="stock" type="text"
+														class="form-control " placeholder="stock"
+														th:field="*{stock}" />
+												</div>
+												<div class="col-sm-4 mb-4 mb-sm-0 col-lg-4 form-group">
+													<input name="unidadDeMedida" type="text"
+														class="form-control " placeholder="unidad De Medida"
+														th:field="*{unidadDeMedida}" />
+												</div>
+
+											</div>
+											<div class="form-group row">
+												
+												<div class="col-sm-2 mb-3 mb-sm-0 col-lg-2 form-group">
+													<input name="estado" type="number"
+														class="form-control " placeholder="estado"
+														th:field="*{estado}" />
+												</div>
+												<div class="col-sm-2 mb-3 mb-sm-0 col-lg-2 form-group">
+													<input name="precio" type="number"
+														class="form-control " placeholder="precio"
+														th:field="*{precio}" />
+												</div>
+												<div class="col-sm-4 mb-3 mb-sm-0 col-lg-4 form-group">
+													<select  th:field="*{idCategoria}" class="form-control " name="idCategoria" id="idCategoria">
+														<option value="" selected>--Seleccione una categoria--</option>
+														<option th:each=" item: ${categorias}" th:value="${item.id}" th:text="${item.nombre}" ></option>
+													</select>
+												</div>
+												<div class="col-sm-4 mb-3 mb-sm-0 col-lg-4 form-group">
+													<select  th:field="*{impuesto_CESC}" class="form-control " name="impuesto_CESC" id="impuesto_CESC">
+														<option value="" selected>--Seleccione impuesto CESC--</option>
+														<option value="0">NO</option>
+														<option value="1">SI</option>
+
+													</select>
+												</div>
+											</div>
+										
+											<hr class="mt-2">
+											<div class="row">
+												<input type="submit" class="btn btn-outline-primary   col-3 offset-3"
+													 value="Guardar" id="submitButton" />
+													  <input type="reset"
+													href="login.html" class="btn btn-outline-danger  col-3 offset-1"
+													value="Limpiar" />
+
+											</div>
+
+										</form>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+			</div>
+		</div>
+
+	</section><!--Fin contenedor principal-->
+</body>
+
+</html>

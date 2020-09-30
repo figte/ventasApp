@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<section th:replace="fragments/header :: header-css" />
+</head>
+
+<body id="page-top">
+	<section id="wrapper">
+		<!-- Page Wrapper -->
+		<section th:replace="fragments/sidebar :: sidebar-css" />
+		<!-- Content sidebar -->
+		<section id="content-wrapper" class="d-flex flex-column" />
+		<!-- Content Wrapper -->
+
+
+		<section id="content">
+			<!-- Main Content -->
+			<section th:replace="fragments/navbar :: navbar-css" />
+
+			<section id="general-content" class="container-fluid ">
+				<!--Init content-->
+				<!-- DataTales Example -->
+                <section th:replace="views/productos/componentes/dataTable :: dataTable-fragment" />
+			</section>
+			<!--end content-->
+           
+			<section th:replace="fragments/foother :: foother-css" />
+			<!-- Footer -->
+		</section>
+		<!-- End of Content Wrapper -->
+	</section>
+	<!-- End of Page Wrapper -->
+
+     
+		<section th:replace="views/Productos/componentes/addProductoModal :: modal-frm-add-fragment" /> 
+
+		<section th:replace="views/Productos/componentes/editProductoModal :: modal-frm-edit-fragment" />
+
+		<section th:replace="views/Productos/componentes/deleteProductoModal :: modal-frm-delete-fragment" /> 
+ 		<script th:src="@{../js/productos.js}"></script>
+
+
+</body>
+
+</html>

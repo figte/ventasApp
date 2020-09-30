@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<section th:replace="fragments/header :: header-css" />
+</head>
+
+<body>
+
+	<section id="wrapper" style="background: white !important">
+		<!--Contenedor princial-->
+
+		<section th:replace="fragments/sidebar :: sidebar-css" /> <!-- Content sidebar -->
+
+		<section id="content-wrapper" class="d-flex flex-column">
+			<!-- Content Wrapper -->
+
+			<section id="content">
+				<!--contenido-->
+				<!-- Main Content -->
+				<section th:replace="fragments/navbar :: navbar-css" />
+
+				<section id="general-content" class="container-fluid ">
+
+						<div class="card breadcrumb-container mb-3 col-10">
+							<ol class="breadcrumb mt-3">
+								<li class="breadcrumb-item">Inventario</li>
+								<li class="breadcrumb-item " aria-current="page">Entrada de Productos</li>
+							</ol>
+						</div>
+
+					<!--Data table-->
+				    <section th:replace="views/entradas/componentes/dataTable :: dataTable-fragment" />
+				</section>
+                 <section th:replace="views/entradas/componentes/addEntradaModal :: modal-frm-add-fragment" />
+				<section th:replace="fragments/foother :: foother-css" />
+
+			</section>
+			<!--fin contenido-->
+
+		</section>
+		<!--fin Contenedor princial-->
+
+
+		
+		<script th:src="@{../js/entradas.js}"></script>
+
+
+</body>
+
+</html>

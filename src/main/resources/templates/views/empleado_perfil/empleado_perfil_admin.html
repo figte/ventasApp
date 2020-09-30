@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<section th:replace="fragments/header :: header-css" />
+	<link rel="stylesheet" th:href="@{../css/empleados.css}" />
+</head>
+
+<body id="page-top">
+	<section id="wrapper" >
+		<!-- Page Wrapper -->
+		<section th:replace="fragments/sidebar :: sidebar-css" />
+		<!-- Content sidebar -->
+
+
+		<section id="content-wrapper" class="d-flex flex-column" />
+		<!-- Content Wrapper -->
+
+
+		<section id="content">
+			<!-- Main Content -->
+			<section th:replace="fragments/navbar :: navbar-css" />
+
+			<section id="general-content" class="container-fluid ">
+				<!--Init content-->
+				<!-- DataTales Example -->
+				<div class="border-0 mt-0">
+                <div class="card breadcrumb-container mb-3">
+					<ol class="breadcrumb mt-3">
+						<li class="breadcrumb-item">Administración</li>
+						<li class="breadcrumb-item " aria-current="page">Sucursales</li>
+						<li class="breadcrumb-item " aria-current="page">Empleados-Perfiles</li>
+					</ol>
+                </div>
+					<section class="card o-hidden border-0 shadow-sm mt-0 mb-3 ml-5 mr-5 p-4">
+						<h5 class="tema-filtro">FILTRAR EMPLEADOS</h5>
+						<form  action="#" method="#">
+							<div class="form-group row">
+								<label for="sucursales" class="mt-2 col-1">Sucursal:</label> <select name="sucursales" id="sucursales"
+									class="custom-select mb-3 form-control form-control-user col-3 ">
+									<option selected value="0">Todas Sucursales</option>
+									<div th:each="sucursal : ${sucursales}">
+										<option th:value="${sucursal.id}" th:text="${sucursal.nombre}"></option>
+									</div>
+								</select> <label for="sucursales" class="mt-2 col-1">Puesto:</label> <select id="empleos" name="empleos"
+									class="custom-select mb-3 form-control form-control-user col-3 ">
+									<option selected value="all">Todos los Puestos</option>
+									<div th:each="cargo : ${puestos}">
+										<option th:value="${cargo.nombre}" th:text="${cargo.nombre}"></option>
+									</div>
+								</select>
+								<button type="button" id="btn-frm-search-empleado" class="btn btn-outline-success col-1 ml-5" style="height: 40px;">
+									<i class="fa fa-search"></i>
+								</button>
+								<button type="button" id="btnNuevoEmpleado" class="btn btn-outline-primary btn-user col-2 ml-3 "
+									style="height: 40px;">
+									<i class="fa fa-plus"> </i> <span> Empleado</span>
+								</button>
+
+
+							</div>
+
+						</form>
+					</section>
+					<section class="card o-hidden border-0 shadow-sm mt-3 mb-3 ml-5 mr-5 p-4" >
+						<section class="table">
+							<table class="table  thead-light text-center" id="dataTable">
+								<thead >
+									<tr>
+										<th>Correlativo</th>
+										<th>Nombre</th>
+										<th>Apellido</th>
+										<th>Dirección</th>
+										<th>Contacto</th>
+										<th>Puesto</th>
+										<th>sucursal</th>
+										<th>Perfil</th>
+										<th>Editar</th>
+										<th>ELiminar</th>
+									</tr>
+								</thead>
+								<tfoot class="card-header">
+									<tr>
+										<th>Correlativo</th>
+										<th>Nombre</th>
+										<th>Apellido</th>
+										<th>Dirección</th>
+										<th>Contacto</th>
+										<th>Puesto</th>
+										<th>sucursal</th>
+										<th>Perfil</th>
+										<th>Editar</th>
+										<th>ELiminar</th>
+									</tr>
+								</tfoot>
+
+							</table>
+						</section>
+					</section>
+				</div>
+
+			</section>
+			<!--end content-->
+			<section th:replace="fragments/foother :: foother-css" />
+			<!-- Footer -->
+		</section>
+		<!-- End of Content Wrapper -->
+	</section>
+	<!-- End of Page Wrapper -->
+	
+	<section th:replace="views/empleado_perfil/componentes/addEmpleadoModal :: modal-frm-add-fragment" />
+
+    <section th:replace="views/empleado_perfil/componentes/editEmpleadoModal :: modal-frm-edit-fragment" />
+	
+	<section th:replace="views/empleado_perfil/componentes/deleteEmpleadoModal :: modal-frm-delete-fragment" />
+	
+	<script th:src="@{../js/empleados.js}"></script>
+	<script>
+	</script>
+
+</body>
+
+</html>

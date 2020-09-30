@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<body th:fragment="modal-frm-factura">
+	<form class="ml-2" th:object="${sucursal}" th:action="@{../?}" method="post" id="registrationForm" style="min-height: 500px">
+		<div id="salida-div">
+			<legend class="text-bold mt-3">DETALLE DEL DOCUMENTO:</legend>
+			<hr class="mt-1">
+			<fieldset class="content-group col-12">
+				<div class="row  mb-3 mt-2">
+					<div class="form-group col-2">
+						<label for="cantidad">Cantidad:</label>
+						<input id="cantidad" class="form-control" type="number" name="cantidad">
+					</div>
+
+					<div class="form-group col-6">
+						<label for="producto">producto:</label>
+						<input id="producto" class="form-control" type="text" name="producto" readonly>
+					</div>
+					<div class="form-group col-2">
+						<button id="buscarProducto" type="button" class="btn btn-outline-primary mt-4 col-12"  data-toggle="modal" data-target="#ModalProducto">
+							<i class="fa fa-search" aria-hidden="true"></i>
+							Buscar
+						</button>
+					</div>
+					<div class="form-group col-2 mt-2">
+						<button id="agregarProducto" type="button" class="btn btn-outline-success col-12 mt-4">
+							<i class="fa fa-plus" aria-hidden="true"></i>
+							Agregar
+						</button>
+					</div>
+					<!-- <button type="button" class="btn btn-outline-danger col-3 ml-5">
+						<i class="fa fa-minus" aria-hidden="true"></i>
+						Eliminar
+					</button> -->
+				</div>
+
+				<section class="container-table">
+					<table class="table" id="table-factura">
+						<thead>
+							<tr>
+								<th>Cantidad</th>
+								<th>Código</th>
+								<th>Descripción</th>
+								<th>Unidad de medida</th>
+								<th>Precio Unitario</th>
+								<th>No sujetas</th>
+								<th>Exentas</th>
+								<th>Grabadas</th>
+								<th>Eliminar</th>
+							</tr>
+						</thead>
+						<tbody id="tDetalles">
+							
+						</tbody>
+					</table>
+				</section>
+
+			</fieldset>
+			
+	</form>
+
+
+</body>
+
+</html>

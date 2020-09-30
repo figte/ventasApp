@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+   <section th:fragment="foother-css">
+      <!-- Footer -->
+      <footer class="sticky-footer shadow-lg mt-3">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; SYS-ADMIN 2019</span>
+          </div>
+        </div>
+      </footer>
+       <!-- Scroll to Top Button-->
+	  <a class="scroll-to-top rounded" href="#page-top">
+	    <i class="fas fa-angle-up"></i>
+	  </a>
+	
+	  <!-- Logout Modal-->
+	  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	    <div class="modal-dialog" role="document">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <h5 class="modal-title text-center" id="exampleModalLabel">¡¡Esta seguro de cerrar cesión!!</h5>
+	          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+	            <span aria-hidden="true">×</span>
+	          </button>
+	        </div>
+	        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+	        <div class="modal-footer">
+	          <button class="btn btn-outline-primary" type="button" data-dismiss="modal">Cancel</button>
+	          <a class="btn btn-outline-danger" th:href="@{../logout}">Logout</a>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	  
+	  
+	  
+	  <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script th:src="@{../customTables/jquery/jquery-3.3.1.min.js}"></script>
+    <script th:src="@{../customTables/popper/popper.min.js}"></script>
+    <script th:src="@{../customTables/bootstrap/js/bootstrap.min.js}"></script>
+      
+    <!-- datatables JS -->
+    <script type="text/javascript" th:src="@{../customTables/datatables/datatables.min.js}"></script>    
+     
+    <!-- para usar botones en datatables JS -->  
+    <script th:src="@{../customTables/datatables/Buttons-1.5.6/js/dataTables.buttons.min.js}"></script>  
+    <script th:src="@{../customTables/datatables/JSZip-2.5.0/jszip.min.js}"></script>    
+    <script th:src="@{../customTables/datatables/pdfmake-0.1.36/pdfmake.min.js}"></script>    
+    <script th:src="@{../customTables/datatables/pdfmake-0.1.36/vfs_fonts.js}"></script>
+    <script th:src="@{../customTables/datatables/Buttons-1.5.6/js/buttons.html5.min.js}"></script>
+     
+    <!-- código JS propìo-->    
+    <script type="text/javascript" th:src="@{../customTables/main.js}"></script>  
+	<!-- Page level custom scripts -->
+	<script th:src="@{../vendor/notify/bootstrap-notify.js}"></script>
+	<!-- Custom scripts for all pages-->
+	  <script th:src="@{../js/sb-admin-2.js}"></script>
+   </section>
+   
+</body>
+</html>

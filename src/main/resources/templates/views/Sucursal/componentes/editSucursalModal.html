@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<body th:fragment="modal-frm-edit-fragment">
+	<!--Modal encargado para guardar sucursal-->
+
+	<!-- The Modal Add-->
+	<section class="modal  mt-5" id="modalEdit" ><!--inicio contenedor principal-->
+
+		<div class="modal-dialog modal-custom">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<header class="modal-header  text-center">
+					<h1 class="h4 col-12"  id="addTittle">EDITAR SUCURSAL</h1>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</header>
+
+				<!-- Modal body -->
+				<section class="modal-body">
+					<div class="card o-hidden border-0 shadow-lg">
+						<div class="card-body p-2 ">
+							<!-- Nested Row within Card Body -->
+							<div class="row my-1">
+								<div class="col-lg-12 col-sm-12">
+									<div class="p-2">
+										<div class="text-center" id="divTitulo"></div>
+										<form class="user" th:object="${sucursal}"
+											th:action="@{../administracion/saveSucursal}" method="post"
+											id="editForm">
+											<div class="form-group row">
+												<input name="id" type="hidden"
+														class="form-control form-control-user"
+														 th:field="*{id}" />
+												<div class="col-sm-12 mb-12 mb-sm-0 col-lg-6 form-group">
+													<input name="nombre" type="text"
+														class="form-control form-control-user"
+														placeholder="NOMBRE DE LA SUCURSAL" th:field="*{nombre}" />
+												</div>
+												<div class="col-sm-12 mb-12 mb-sm-0 col-lg-6 form-group">
+													<input name="direccion" type="text"
+														class="form-control form-control-user" placeholder="DIRECCIÓN"
+														th:field="*{direccion}" />
+												</div>
+
+											</div>
+											<div class="form-group row">
+												<div class="col-sm-12 mb-12 mb-sm-0 col-lg-6 form-group">
+													<input name="telefono" type="text"
+														class="form-control form-control-user"
+														placeholder="TELEFONO(+xxx xxxx-xxxx)" th:field="*{telefono}" />
+												</div>
+												<div class="col-sm-12 mb-12 mb-sm-0 col-lg-6 form-group">
+													<input name="direccion" type="text"
+														class="form-control form-control-user" placeholder="EMAIL"
+														th:field="*{email}" />
+												</div>
+
+											</div>
+											<div class="form-group">
+												<textarea name="detalle" class="form-control form-control-user"
+													placeholder="DESCRIPCIÓN" th:field="*{detalle}"
+													th:errorclass="'form-control alert alert-danger'"></textarea>
+
+											</div>
+											<hr>
+											<div class="row">
+												<input type="submit" class="btn btn-outline-primary  col-3 offset-3"
+													 value="Guardar" id="submitButtonEdit" />
+													  <input type="reset"
+													href="login.html" class="btn btn-outline-danger  col-3 offset-1"
+													value="Limpiar" />
+
+											</div>
+
+										</form>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+			</div>
+		</div>
+
+	</section><!--Fin contenedor principal-->
+</body>
+
+</html>
